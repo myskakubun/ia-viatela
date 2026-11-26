@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IA sin humo · Charla de Weimar Viatela · 18 de enero de 2027</title>
 <meta name="description" content="Charla 'IA sin humo: lo que sí te sirve (y lo que te está costando dinero)'. Grupo de emprendedores, profesionales y empresarios del Consulado de Colombia en Madrid. Recursos para el móvil.">
@@ -106,6 +107,9 @@
   .speaker li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:.7rem;top:9px}
   @media (max-width:760px){.speaker{grid-template-columns:1fr}.speaker .video{aspect-ratio:16/10}nav .links{display:none}}
 
+  .unmute{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:var(--gold);color:#1a140b;border:0;border-radius:999px;padding:11px 18px;font-weight:600;font-size:.95rem;cursor:pointer;font-family:inherit;box-shadow:0 6px 20px rgba(0,0,0,.45);animation:nudge 2.2s ease-in-out infinite}
+  .unmute:hover{background:var(--gold2)}
+  @keyframes nudge{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.05)}}
   footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
   footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gold);color:#1a140b;padding:10px 18px;border-radius:10px;font-weight:600;transition:.3s;z-index:9}
@@ -292,18 +296,18 @@
   <div class="wrap">
     <p class="eyebrow">Después de la charla</p>
     <h2>El programa sigue</h2>
-    <p class="lead">Esta charla abre un programa piloto de formación en IA de febrero a junio de 2027, con dos líneas.</p>
+    <p class="lead">Esta charla abre un programa piloto de formación en IA de febrero a junio de 2027, con dos líneas de cuatro talleres cada una.</p>
     <div class="grid">
       <a class="res" href="comunidad.html" style="text-decoration:none;color:var(--ink)">
         <span class="tag">Línea de formación</span>
         <h3>IA para la comunidad</h3>
-        <p>Cinco talleres desde el móvil: trabajo y plata, aprender lo que quieras, familia y raíces.</p>
+        <p>Cuatro talleres desde el móvil: trabajo y plata, aprender lo que quieras, familia y raíces.</p>
         <span class="btn">Ver los talleres →</span>
       </a>
       <a class="res" href="emprendedores.html" style="text-decoration:none;color:var(--ink)">
         <span class="tag">Línea de formación</span>
         <h3>IA para emprendedores</h3>
-        <p>Cinco talleres: apps esenciales, datos, marca, herramientas clave y cultura digital.</p>
+        <p>Cuatro talleres: apps esenciales, datos, herramientas clave y cultura digital.</p>
         <span class="btn">Ver el programa →</span>
       </a>
     </div>
@@ -352,7 +356,7 @@
       booking:  "mailto:TU_CORREO?subject=Diagn%C3%B3stico%20IA%20-%20Charla%20Consulado",
       portfolio:"https://viatela.com"
     },
-    videoSrc: ""   // opcional: URL del .mp4 del agente para incrustarlo aquí
+    videoSrc: "https://myskakubun.com/wp-content/uploads/2026/02/Agente_wey_hablando.mp4"
   };
   /* =========================================================================== */
 
@@ -377,8 +381,20 @@
   }
 
   if (CONFIG.videoSrc) {
-    document.getElementById("video-box").innerHTML =
-      `<video src="${CONFIG.videoSrc}" controls playsinline preload="metadata"></video>`;
+    const box = document.getElementById("video-box");
+    box.style.position = "relative"; box.style.padding = "0";
+    box.innerHTML = `<video id="agent-video" src="${CONFIG.videoSrc}" muted playsinline loop preload="metadata"></video>
+      <button id="unmute" class="unmute" aria-label="Activar sonido">🔊 Toca para escucharlo</button>`;
+    const v = document.getElementById("agent-video"), btn = document.getElementById("unmute");
+    // Reproduce en silencio al entrar en pantalla y pausa al salir
+    new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) v.play().catch(() => {}); else v.pause();
+    }), { threshold: 0.5 }).observe(v);
+    // Al tocar: vuelve al inicio, con sonido y controles
+    btn.addEventListener("click", () => {
+      v.muted = false; v.loop = false; v.currentTime = 0; v.controls = true;
+      v.play().catch(() => {}); btn.remove();
+    });
   }
 
   function tick(){

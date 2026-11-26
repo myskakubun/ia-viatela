@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA sin humo · Charla de Weimar Viatela · 18 de enero de 2027</title>
+<meta name="description" content="Charla 'IA sin humo: lo que sí te sirve (y lo que te está costando dinero)'. Grupo de emprendedores, profesionales y empresarios del Consulado de Colombia en Madrid. Recursos para el móvil.">
+<meta property="og:title" content="IA sin humo · Weimar Viatela">
+<meta property="og:description" content="Lo que sí te sirve de la IA (y lo que te está costando dinero). Recursos de la charla del 18 de enero de 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12100d; --bg2:#1b1814; --card:#211d18; --line:#3a332a;
+    --gold:#d9a93f; --gold2:#f0cd7a; --terra:#c4623a; --ink:#f3ece0; --muted:#b3a894;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-size:17px}
+  a{color:var(--gold2)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;font-weight:600}
+  h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:.4em}
+  h3{font-size:1.2rem;margin-bottom:.35em}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .lead{color:var(--muted);max-width:640px;font-size:1.05rem}
+
+  /* Patrón geométrico inspirado en la orfebrería y los textiles muiscas */
+  .pattern{background-image:
+      repeating-linear-gradient(45deg, rgba(217,169,63,.07) 0 2px, transparent 2px 22px),
+      repeating-linear-gradient(-45deg, rgba(217,169,63,.07) 0 2px, transparent 2px 22px);}
+
+  header.hero{position:relative;padding:28px 0 84px;overflow:hidden}
+  nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:64px;font-size:.9rem}
+  nav .brand{font-family:Fraunces,serif;font-weight:600;letter-spacing:.02em;color:var(--ink);text-decoration:none}
+  nav .links{display:flex;gap:18px;flex-wrap:wrap}
+  nav .links a{color:var(--muted);text-decoration:none}
+  nav .links a:hover{color:var(--gold2)}
+  .hero h1{font-size:clamp(2.8rem,9vw,5.6rem);font-weight:800;letter-spacing:-.02em}
+  .hero h1 span{color:var(--gold)}
+  .hero .sub{font-family:Fraunces,serif;font-size:clamp(1.15rem,2.6vw,1.6rem);color:var(--muted);margin:.4em 0 1.4em;max-width:720px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+  .chip{border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:7px 14px;font-size:.88rem;color:var(--ink)}
+  .chip b{color:var(--gold2);font-weight:600}
+  .motto{font-family:Fraunces,serif;font-style:italic;color:var(--gold2);font-size:1.1rem}
+
+  .countdown{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .countdown div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;min-width:84px;text-align:center}
+  .countdown strong{display:block;font-family:Fraunces,serif;font-size:2rem;color:var(--gold)}
+  .countdown small{color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em}
+
+  .banner{margin-top:36px;display:flex;gap:14px;align-items:center;background:linear-gradient(90deg,rgba(217,169,63,.16),rgba(196,98,58,.12));border:1px solid rgba(217,169,63,.45);border-radius:var(--radius);padding:16px 20px}
+  .banner .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(217,169,63,.7);animation:pulse 2s infinite;flex:none}
+  @keyframes pulse{70%{box-shadow:0 0 0 12px rgba(217,169,63,0)}100%{box-shadow:0 0 0 0 rgba(217,169,63,0)}}
+  .banner.live{background:linear-gradient(90deg,rgba(91,170,110,.2),rgba(217,169,63,.12));border-color:rgba(91,170,110,.6)}
+  .banner.live .dot{background:#5baa6e}
+
+  /* Agenda */
+  .acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-top:28px}
+  .act{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+  .act .n{font-family:Fraunces,serif;color:var(--gold);font-size:.95rem}
+  .act p{color:var(--muted);font-size:.95rem}
+
+  /* Recursos */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:28px}
+  .res{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;overflow:hidden;scroll-margin-top:20px}
+  .res .tag{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:8px}
+  .res p{color:var(--muted);font-size:.95rem}
+  .btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;background:var(--gold);color:#1a140b;border:0;border-radius:10px;padding:10px 16px;font-weight:600;font-size:.92rem;text-decoration:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--gold2)}
+  .btn.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+  .locked .content{filter:blur(6px);opacity:.35;pointer-events:none;user-select:none}
+  .lock{display:none;position:absolute;inset:0;align-items:center;justify-content:center;flex-direction:column;gap:8px;text-align:center;padding:20px;background:rgba(18,16,13,.35)}
+  .locked .lock{display:flex}
+  .lock svg{width:30px;height:30px;stroke:var(--gold)}
+  .lock span{font-weight:600}
+  .lock small{color:var(--muted)}
+  .wide{grid-column:1/-1}
+
+  ol.qs{counter-reset:q;list-style:none;margin-top:12px}
+  ol.qs li{counter-increment:q;position:relative;padding:10px 0 10px 44px;border-bottom:1px dashed var(--line);color:var(--ink)}
+  ol.qs li::before{content:counter(q);position:absolute;left:0;top:8px;width:30px;height:30px;border-radius:50%;background:var(--gold);color:#1a140b;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+
+  .prompt{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:12px;font-size:.88rem;color:var(--ink);white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace}
+  .copy{margin-top:8px;background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:5px 10px;font-size:.8rem;cursor:pointer;font-family:inherit}
+  .copy:hover{color:var(--gold2);border-color:var(--gold)}
+  ul.tools{list-style:none;margin-top:10px}
+  ul.tools li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+  ul.tools b{color:var(--gold2)}
+
+  .car{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
+  .car div{border-left:3px solid var(--gold);padding:6px 0 6px 14px}
+  .car b{display:block;font-family:Fraunces,serif;font-size:1.05rem}
+  .car span{color:var(--muted);font-size:.92rem}
+
+  .speaker{display:grid;grid-template-columns:1fr 1.4fr;gap:34px;align-items:center}
+  .speaker .video{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+  .speaker .video video{width:100%;height:100%;object-fit:cover}
+  .speaker ul{list-style:none;margin:14px 0}
+  .speaker li{padding:5px 0 5px 20px;position:relative;color:var(--muted)}
+  .speaker li::before{content:"◆";position:absolute;left:0;color:var(--gold);font-size:.7rem;top:9px}
+  @media (max-width:760px){.speaker{grid-template-columns:1fr}.speaker .video{aspect-ratio:16/10}nav .links{display:none}}
+
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gold);color:#1a140b;padding:10px 18px;border-radius:10px;font-weight:600;transition:.3s;z-index:9}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="hero pattern">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="https://viatela.com">Weimar Viatela</a>
+      <div class="links">
+        <a href="#agenda">Agenda</a>
+        <a href="#mochila">La mochila</a>
+        <a href="comunidad.html">Comunidad</a>
+        <a href="emprendedores.html">Emprendedores</a>
+      </div>
+    </nav>
+
+    <p class="eyebrow">Charla · Inteligencia artificial para emprendedores</p>
+    <h1>IA sin <span>humo</span></h1>
+    <p class="sub">Lo que sí te sirve de la inteligencia artificial (y lo que te está costando dinero).</p>
+
+    <div class="meta">
+      <span class="chip"><b>18 de enero de 2027</b></span>
+      <span class="chip">Madrid</span>
+      <span class="chip">Grupo de emprendedores, profesionales y empresarios · Consulado de Colombia en Madrid</span>
+      <span class="chip">45 minutos · interactiva</span>
+    </div>
+
+    <p class="motto">"Entender el pasado para no delegar el futuro."</p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div><strong id="cd-d">–</strong><small>días</small></div>
+      <div><strong id="cd-h">–</strong><small>horas</small></div>
+      <div><strong id="cd-m">–</strong><small>min</small></div>
+      <div><strong id="cd-s">–</strong><small>seg</small></div>
+    </div>
+
+    <div class="banner" id="banner">
+      <span class="dot"></span>
+      <div id="banner-text"><b>Los recursos se activan el día de la charla.</b> Guarda esta página: el 18 de enero tendrás aquí la encuesta en vivo, mi agente de IA y la mochila de herramientas para tu móvil.</div>
+    </div>
+  </div>
+</header>
+
+<section id="agenda">
+  <div class="wrap">
+    <p class="eyebrow">Agenda</p>
+    <h2>Seis actos, 45 minutos</h2>
+    <p class="lead">Del ruido a la práctica: calmamos los ánimos, desmontamos las trampas, ponemos a prueba la IA en vivo y salimos con herramientas reales.</p>
+    <div class="acts">
+      <div class="act"><div class="n">01</div><h3>Ese no era yo</h3><p>Un arranque que no esperas y una encuesta en vivo desde tu móvil.</p></div>
+      <div class="act"><div class="n">02</div><h3>Ya pasamos por esto</h3><p>Electricidad, internet, smartphone. La IA es una ola más, pero esta curva sube más rápido que nunca.</p></div>
+      <div class="act"><div class="n">03</div><h3>Las cuatro trampas</h3><p>La IA decorativa, el documento que nadie lee, la fiebre de licencias y la fiebre de cursos.</p></div>
+      <div class="act"><div class="n">04</div><h3>Seguro no es correcto</h3><p>Ponemos a prueba la IA en muysccubun, la lengua muisca, y repasamos casos reales de errores costosos.</p></div>
+      <div class="act"><div class="n">05</div><h3>Lo que sí funciona</h3><p>Agentes y automatizaciones del día a día. Hablarás en directo con mi agente de IA.</p></div>
+      <div class="act"><div class="n">06</div><h3>La mochila</h3><p>Tres preguntas antes de pagar una herramienta y recursos para llevar en el bolsillo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="mochila">
+  <div class="wrap">
+    <p class="eyebrow">Recursos de la charla</p>
+    <h2>La mochila</h2>
+    <p class="lead">Todo lo que usaremos en la sala, listo para tu móvil. Se activa el 18 de enero.</p>
+
+    <div class="grid">
+
+      <!-- Encuesta -->
+      <div class="res gated" id="encuesta">
+        <div class="content">
+          <span class="tag">En vivo</span>
+          <h3>Encuesta de la sala</h3>
+          <p>Tres preguntas rápidas: para qué usas la IA, cuánto gastas al mes y qué te frustra. Los resultados salen en pantalla durante la charla.</p>
+          <a class="btn" data-link="survey" href="#" target="_blank" rel="noopener">Responder la encuesta →</a>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span><small>Se abre al empezar la charla</small></div>
+      </div>
+
+      <!-- Agente -->
+      <div class="res gated" id="agente">
+        <div class="content">
+          <span class="tag">Interactivo</span>
+          <h3>Habla con mi agente</h3>
+          <p>Pregúntale lo que quieras sobre mi trabajo: qué sé hacer, en qué proyectos estoy, qué es Raizeta. Responde 24/7.</p>
+          <a class="btn" data-link="agent" href="#" target="_blank" rel="noopener">Abrir el agente →</a>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span><small>Lo probaremos juntos en la sala</small></div>
+      </div>
+
+      <!-- Tres preguntas -->
+      <div class="res gated">
+        <div class="content">
+          <span class="tag">Antes de pagar</span>
+          <h3>Las tres preguntas</h3>
+          <p>Antes de contratar cualquier herramienta de IA:</p>
+          <ol class="qs">
+            <li>¿Qué problema concreto me resuelve?</li>
+            <li>¿Cuánto me cuesta hoy ese problema, en horas o en euros?</li>
+            <li>¿Cómo sabré en un mes que funcionó?</li>
+          </ol>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span></div>
+      </div>
+
+      <!-- Coche y taller -->
+      <div class="res gated wide">
+        <div class="content">
+          <span class="tag">La idea que te llevas</span>
+          <h3>Nadie hace un curso de mecánica antes de comprarse un coche</h3>
+          <div class="car">
+            <div><b>Saber a dónde vas</b><span>Tu negocio. La IA es el vehículo, no el destino.</span></div>
+            <div><b>Conducir lo básico</b><span>Las tres o cuatro herramientas que de verdad usas.</span></div>
+            <div><b>Un taller de confianza</b><span>Para lo complejo, un profesional de la IA.</span></div>
+          </div>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span></div>
+      </div>
+
+      <!-- Prompts -->
+      <div class="res gated wide">
+        <div class="content">
+          <span class="tag">Plantillas</span>
+          <h3>Dos prompts para tu negocio</h3>
+          <p>Cópialos, cambia lo que está entre corchetes y úsalos en cualquier asistente de IA.</p>
+
+          <div class="prompt" id="p1">Actúa como consultor de negocio. Tengo un [tipo de negocio] en Madrid con [número] empleados. La tarea que más tiempo me quita cada semana es [tarea]. Hazme 3 preguntas para entender bien el problema y después proponme como máximo 2 formas de automatizarla, con el coste aproximado y cómo mediría si funcionó. Si no estás seguro de algo, dímelo en lugar de inventarlo.</div>
+          <button class="copy" data-copy="p1">Copiar</button>
+
+          <div class="prompt" id="p2">Revisa este texto antes de enviarlo a un cliente: [pega el texto]. Señálame: 1) datos o cifras que debería comprobar, 2) frases que suenan confusas, 3) una versión más corta. No cambies el tono ni añadas información que yo no haya dado.</div>
+          <button class="copy" data-copy="p2">Copiar</button>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span></div>
+      </div>
+
+      <!-- Herramientas -->
+      <div class="res gated">
+        <div class="content">
+          <span class="tag">En tu móvil</span>
+          <h3>Herramientas para empezar sin pagar</h3>
+          <ul class="tools">
+            <li><b>Un asistente general</b>, en su versión gratuita (ChatGPT, Gemini, Claude o Copilot). Con uno basta.</li>
+            <li><b>NotebookLM</b>, para hacer preguntas sobre tus propios documentos.</li>
+            <li><b>Perplexity</b>, para buscar con las fuentes a la vista.</li>
+            <li><b>La grabadora del móvil</b> + transcripción, para convertir reuniones en notas.</li>
+          </ul>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span></div>
+      </div>
+
+      <!-- Cursos -->
+      <div class="res gated">
+        <div class="content">
+          <span class="tag">Si vas a formarte</span>
+          <h3>Tres señales de un curso que merece la pena</h3>
+          <ul class="tools">
+            <li><b>Casos verificables</b>, no solo testimonios de ingresos.</li>
+            <li><b>Te enseña a medir</b> si lo aprendido funciona en tu caso.</li>
+            <li><b>No te mete prisa</b> para pagar.</li>
+          </ul>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span></div>
+      </div>
+
+      <!-- Diagnóstico -->
+      <div class="res gated wide" id="diagnostico">
+        <div class="content">
+          <span class="tag">Para los asistentes</span>
+          <h3>Diagnóstico gratuito de 15 minutos</h3>
+          <p>Cuéntame tu negocio y te digo, con honestidad, dónde la IA te ahorra tiempo o dinero y dónde no merece la pena. Sin compromiso.</p>
+          <a class="btn" data-link="booking" href="#" target="_blank" rel="noopener">Reservar mi diagnóstico →</a>
+        </div>
+        <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Disponible el 18 de enero</span><small>Plazas limitadas para los asistentes</small></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="programa">
+  <div class="wrap">
+    <p class="eyebrow">Después de la charla</p>
+    <h2>El programa sigue</h2>
+    <p class="lead">Esta charla abre un programa piloto de formación en IA de febrero a junio de 2027, con dos líneas.</p>
+    <div class="grid">
+      <a class="res" href="comunidad.html" style="text-decoration:none;color:var(--ink)">
+        <span class="tag">Línea de formación</span>
+        <h3>IA para la comunidad</h3>
+        <p>Cinco talleres desde el móvil: día a día, estafas, empleo, hijos y memoria familiar.</p>
+        <span class="btn">Ver los talleres →</span>
+      </a>
+      <a class="res" href="emprendedores.html" style="text-decoration:none;color:var(--ink)">
+        <span class="tag">Línea de formación</span>
+        <h3>IA para emprendedores</h3>
+        <p>Cuatro talleres y una clínica para aplicar la IA a tu negocio sin gastar de más.</p>
+        <span class="btn">Ver el programa →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="ponente">
+  <div class="wrap speaker">
+    <div class="video" id="video-box">
+      <p style="color:var(--muted)">Mi agente de IA, presentándome.<br><a href="https://myskakubun.com/equipo/" target="_blank" rel="noopener">Verlo en Myska Kubun →</a></p>
+    </div>
+    <div>
+      <p class="eyebrow">Ponente</p>
+      <h2>Weimar Viatela Aponte</h2>
+      <p class="lead">Consultor de Business Intelligence e IA en Madrid. Colombiano. Investigador en humanismo digital y creador de Myska Kubun.</p>
+      <ul>
+        <li>Datos y analítica: Power BI, Databricks, SQL, Python, Excel y SAP S/4HANA.</li>
+        <li>Agentes de IA y automatizaciones con n8n y WhatsApp para negocios reales.</li>
+        <li>Autor de <i>La historia en datos, datos en la historia</i>.</li>
+        <li>Máster en Ingeniería de Producción (Universidad Politécnica de Madrid).</li>
+      </ul>
+      <a class="btn" data-link="portfolio" href="https://viatela.com" target="_blank" rel="noopener">Ver mi portafolio →</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/weimar-viatela-aponte/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://myskakubun.com" target="_blank" rel="noopener">Myska Kubun</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <span>© 2027 Weimar Viatela Aponte · Esta página también se hizo con IA, con criterio humano.</span>
+    <span>Los datos de la encuesta se usan solo para esta charla y con tu consentimiento.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Copiado</div>
+
+<script>
+  /* ======= CONFIGURACIÓN: cambia aquí los enlaces antes del 18 de enero ======= */
+  const CONFIG = {
+    eventDate: "2027-01-18T18:00:00+01:00",   // hora de inicio en Madrid; ajústala
+    unlockDate: "2027-01-18T00:00:00+01:00",  // desde cuándo se ven los recursos
+    links: {
+      survey:   "#",                          // Tally / Google Forms con consentimiento RGPD
+      agent:    "https://viatela.com",        // URL del agente del portafolio
+      booking:  "mailto:TU_CORREO?subject=Diagn%C3%B3stico%20IA%20-%20Charla%20Consulado",
+      portfolio:"https://viatela.com"
+    },
+    videoSrc: ""   // opcional: URL del .mp4 del agente para incrustarlo aquí
+  };
+  /* =========================================================================== */
+
+  const params = new URLSearchParams(location.search);
+  const preview = params.has("preview");          // charla.viatela.com/?preview → ves todo desbloqueado
+  const now = () => new Date();
+  const eventAt = new Date(CONFIG.eventDate);
+  const unlockAt = new Date(CONFIG.unlockDate);
+  const unlocked = preview || now() >= unlockAt;
+
+  document.querySelectorAll(".gated").forEach(el => el.classList.toggle("locked", !unlocked));
+  document.querySelectorAll("[data-link]").forEach(a => {
+    const url = CONFIG.links[a.dataset.link];
+    if (url) a.href = url;
+  });
+
+  if (unlocked) {
+    const b = document.getElementById("banner");
+    b.classList.add("live");
+    document.getElementById("banner-text").innerHTML =
+      "<b>Recursos activos.</b> Bienvenido a la charla: empieza por la <a href='#encuesta'>encuesta</a>, luego habla con <a href='#agente'>mi agente</a> y llévate <a href='#mochila'>la mochila</a>.";
+  }
+
+  if (CONFIG.videoSrc) {
+    document.getElementById("video-box").innerHTML =
+      `<video src="${CONFIG.videoSrc}" controls playsinline preload="metadata"></video>`;
+  }
+
+  function tick(){
+    let diff = Math.max(0, eventAt - now());
+    const d = Math.floor(diff/864e5); diff -= d*864e5;
+    const h = Math.floor(diff/36e5);  diff -= h*36e5;
+    const m = Math.floor(diff/6e4);   diff -= m*6e4;
+    const s = Math.floor(diff/1e3);
+    const pad = n => String(n).padStart(2,"0");
+    document.getElementById("cd-d").textContent = d;
+    document.getElementById("cd-h").textContent = pad(h);
+    document.getElementById("cd-m").textContent = pad(m);
+    document.getElementById("cd-s").textContent = pad(s);
+    if (eventAt - now() <= 0) document.getElementById("countdown").style.display = "none";
+  }
+  tick(); setInterval(tick, 1000);
+
+  document.querySelectorAll(".copy").forEach(btn => btn.addEventListener("click", async () => {
+    const text = document.getElementById(btn.dataset.copy).innerText;
+    try { await navigator.clipboard.writeText(text); } catch(e) {}
+    const t = document.getElementById("toast");
+    t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 1400);
+  }));
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA para emprendedores colombianos en Madrid · Weimar Viatela</title>
+<meta name="description" content="Talleres prácticos de inteligencia artificial para emprendedores colombianos en Madrid: clientes por WhatsApp, automatización, datos, marca y diagnósticos individuales.">
+<meta property="og:title" content="IA para emprendedores · Programa piloto 2027">
+<meta property="og:description" content="Aplica la IA a tu negocio sin gastar de más.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#12100d;--bg2:#1b1814;--card:#211d18;--line:#3a332a;--gold:#d9a93f;--gold2:#f0cd7a;--terra:#c4623a;--ink:#f3ece0;--muted:#b3a894;--radius:14px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6;font-size:17px}
+  a{color:var(--gold2)}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;font-weight:600}
+  h2{font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:.4em}
+  h3{font-size:1.25rem;margin-bottom:.35em}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  section{padding:72px 0;border-top:1px solid var(--line)}
+  .lead{color:var(--muted);max-width:660px;font-size:1.05rem}
+  .pattern{background-image:repeating-linear-gradient(45deg,rgba(217,169,63,.07) 0 2px,transparent 2px 22px),repeating-linear-gradient(-45deg,rgba(217,169,63,.07) 0 2px,transparent 2px 22px)}
+  header.hero{padding:28px 0 80px}
+  nav{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:64px;font-size:.9rem}
+  nav .brand{font-family:Fraunces,serif;font-weight:600;color:var(--ink);text-decoration:none}
+  nav .links{display:flex;gap:18px;flex-wrap:wrap}
+  nav .links a{color:var(--muted);text-decoration:none}
+  nav .links a:hover,nav .links a.on{color:var(--gold2)}
+  .hero h1{font-size:clamp(2.5rem,7.5vw,4.8rem);font-weight:800;letter-spacing:-.02em}
+  .hero h1 span{color:var(--gold)}
+  .hero .sub{font-family:Fraunces,serif;font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--muted);margin:.5em 0 1.4em;max-width:720px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+  .chip{border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:7px 14px;font-size:.88rem}
+  .chip b{color:var(--gold2);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;margin-right:8px;background:var(--gold);color:#1a140b;border:0;border-radius:10px;padding:11px 18px;font-weight:600;font-size:.95rem;text-decoration:none;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--gold2)}
+  .btn.ghost{background:transparent;color:var(--gold2);border:1px solid var(--gold)}
+  .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:26px}
+  .principles div{border-left:3px solid var(--gold);padding:4px 0 4px 14px}
+  .principles b{display:block;font-family:Fraunces,serif;font-size:1.1rem}
+  .principles span{color:var(--muted);font-size:.93rem}
+  .workshops{display:grid;gap:16px;margin-top:28px}
+  .ws{display:grid;grid-template-columns:90px 1fr 1fr;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;align-items:start}
+  .ws .num{font-family:Fraunces,serif;font-size:2.6rem;color:var(--gold);line-height:1}
+  .ws .month{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);margin-top:6px;font-weight:600}
+  .ws p{color:var(--muted);font-size:.95rem}
+  .ws .take{background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:14px}
+  .ws .take small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px}
+  .ws .take p{color:var(--ink)}
+  @media(max-width:760px){.ws{grid-template-columns:1fr}nav .links{display:none}}
+  .note{margin-top:22px;background:linear-gradient(90deg,rgba(217,169,63,.14),rgba(196,98,58,.1));border:1px solid rgba(217,169,63,.4);border-radius:var(--radius);padding:16px 20px;font-size:.95rem}
+  .format{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:24px}
+  .format div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .format strong{display:block;font-family:Fraunces,serif;font-size:1.6rem;color:var(--gold)}
+  .format span{color:var(--muted);font-size:.9rem}
+  .cta{text-align:center}
+  .cta .lead{margin:0 auto}
+  .other{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:24px}
+  .other a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-decoration:none;color:var(--ink)}
+  .other a:hover{border-color:var(--gold)}
+  .other small{color:var(--gold);letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;font-weight:600}
+  .other p{color:var(--muted);font-size:.93rem}
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+  footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="hero pattern">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="https://viatela.com">Weimar Viatela</a>
+      <div class="links">
+        <a href="index.html">Charla 18 de enero</a>
+        <a href="comunidad.html">Comunidad</a>
+        <a class="on" href="emprendedores.html">Emprendedores</a>
+      </div>
+    </nav>
+    <p class="eyebrow">Línea de formación · Emprendedores</p>
+    <h1>Tu negocio, <span>no la moda</span></h1>
+    <p class="sub">Talleres prácticos para aplicar la inteligencia artificial a tu negocio real. Menos licencias, menos ruido y más horas libres.</p>
+    <div class="meta">
+      <span class="chip"><b>Arranca el 18 de enero de 2027</b></span>
+      <span class="chip">Charla, 4 talleres y clínica</span>
+      <span class="chip">Madrid · presencial y en directo</span>
+    </div>
+    <a class="btn" href="#talleres">Ver el programa</a>
+    <a class="btn ghost" href="index.html">Charla del 18 de enero</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">El enfoque</p>
+    <h2>Nadie hace un curso de mecánica antes de comprarse un coche</h2>
+    <p class="lead">No necesitas aprenderlo todo sobre la IA. Necesitas saber a dónde va tu negocio, manejar las tres o cuatro herramientas que de verdad usas y tener a quién acudir para lo complejo.</p>
+    <div class="principles">
+      <div><b>Sobre tu negocio</b><span>Cada asistente trabaja con su propio caso, no con ejemplos genéricos.</span></div>
+      <div><b>Antes de pagar</b><span>Tres preguntas: qué resuelve, cuánto cuesta hoy el problema, cómo sabré que funcionó.</span></div>
+      <div><b>Sin programar</b><span>Herramientas visuales y gratuitas o de bajo coste.</span></div>
+      <div><b>Medible</b><span>Horas ahorradas y gasto en herramientas, antes y después.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="talleres">
+  <div class="wrap">
+    <p class="eyebrow">El programa</p>
+    <h2>De la charla a tu negocio funcionando</h2>
+    <p class="lead">Una charla para abrir los ojos, cuatro talleres para ponerse manos a la obra y una clínica para resolver cada caso.</p>
+
+    <div class="workshops">
+      <article class="ws">
+        <div><div class="num">00</div><span class="month">18 de enero</span></div>
+        <div><h3>Charla "IA sin humo"</h3><p>Separa lo que sirve de lo que cuesta dinero. Agentes y automatizaciones reales, en vivo.</p></div>
+        <div class="take"><small>Te llevas</small><p>La mochila de recursos en tu móvil y las tres preguntas antes de pagar una herramienta.</p></div>
+      </article>
+      <article class="ws">
+        <div><div class="num">01</div><span class="month">Febrero</span></div>
+        <div><h3>Tu cliente por WhatsApp</h3><p>Atiende y responde a tus clientes con un asistente que sigue las reglas de tu negocio.</p></div>
+        <div class="take"><small>Te llevas</small><p>Un borrador de asistente con las preguntas frecuentes de tu negocio.</p></div>
+      </article>
+      <article class="ws">
+        <div><div class="num">02</div><span class="month">Marzo</span></div>
+        <div><h3>Automatiza sin programar</h3><p>Encadena tareas repetitivas como pedidos, facturas o recordatorios con herramientas visuales como n8n.</p></div>
+        <div class="take"><small>Te llevas</small><p>Un flujo automatizado funcionando.</p></div>
+      </article>
+      <article class="ws">
+        <div><div class="num">03</div><span class="month">Abril</span></div>
+        <div><h3>Datos para decidir</h3><p>Convierte tus ventas y gastos en números útiles con Excel e IA: qué vende, qué pierde, qué cambiar.</p></div>
+        <div class="take"><small>Te llevas</small><p>Un panel sencillo con los datos de tu negocio.</p></div>
+      </article>
+      <article class="ws">
+        <div><div class="num">04</div><span class="month">Mayo</span></div>
+        <div><h3>Contar tu marca con criterio</h3><p>Crea contenido para redes con IA sin sonar a todos los demás ni gastar en herramientas de más.</p></div>
+        <div class="take"><small>Te llevas</small><p>Un calendario de publicaciones de un mes.</p></div>
+      </article>
+      <article class="ws">
+        <div><div class="num">+</div><span class="month">Junio</span></div>
+        <div><h3>Clínica de diagnósticos</h3><p>Sesiones individuales de 15 minutos: dónde te ahorra la IA tiempo o dinero y dónde no merece la pena.</p></div>
+        <div class="take"><small>Te llevas</small><p>Una recomendación escrita para tu negocio.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Formato</p>
+    <h2>Así es cada taller</h2>
+    <div class="format">
+      <div><strong>90 min</strong><span>40 de explicación y 50 trabajando en tu propio negocio</span></div>
+      <div><strong>20–40</strong><span>emprendedores por grupo</span></div>
+      <div><strong>1 resultado</strong><span>concreto por taller, funcionando al salir</span></div>
+      <div><strong>1 página</strong><span>de recursos por taller, para volver cuando quieras</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="apuntate" class="cta pattern">
+  <div class="wrap">
+    <p class="eyebrow">Inscripciones</p>
+    <h2>Empieza el 18 de enero</h2>
+    <p class="lead">Las fechas de los talleres se confirmarán en las próximas semanas. Déjanos tu contacto y te avisamos antes que a nadie.</p>
+    <a class="btn" data-link="signup" href="#">Avísame cuando abran →</a>
+    <a class="btn ghost" href="index.html">Ver la charla</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">También en el programa</p>
+    <h2>IA para toda la familia</h2>
+    <div class="other">
+      <a href="comunidad.html"><small>Línea de formación</small><h3>IA para la comunidad</h3><p>Cinco talleres desde el móvil: día a día, estafas, empleo, hijos y memoria familiar.</p></a>
+      <a href="https://viatela.com"><small>Ponente</small><h3>Weimar Viatela Aponte</h3><p>Consultor de datos e IA en Madrid. Conoce su trabajo y habla con su agente.</p></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <span>Imparte: <a href="https://viatela.com">Weimar Viatela Aponte</a> · consultor de datos e IA en Madrid · <a href="https://www.linkedin.com/in/weimar-viatela-aponte/">LinkedIn</a></span>
+    <span>Programa piloto 2027. Fechas y sedes por confirmar.</span>
+  </div>
+</footer>
+
+<script>
+  /* Enlace de inscripción: cambia por tu formulario (Tally / Google Forms con consentimiento RGPD) */
+  const CONFIG = { links: { signup: "#apuntate" } };
+  document.querySelectorAll("[data-link]").forEach(a => { const u = CONFIG.links[a.dataset.link]; if (u) a.href = u; });
+</script>
+</body>
+</html>
